@@ -66,13 +66,13 @@ const Tabs = React.createClass({
 
 const App = React.createClass({
   render(){
-    const data = this.props.countries.map(country => ({
-      label: country.name,
-      content: country.description
+    const data = this.props.data.map(item => ({
+      label: item.name,
+      content: item.description
     }))
     return (
       <div>
-        <h1>Countries</h1>
+        <h1>Components demo</h1>
         <Tabs data={data} />
       </div>
     )
@@ -85,4 +85,4 @@ const DATA = [
   { id: 3, name: 'Narendra', description: 'We are going to have an awesome Emberjs talk later today!' }
 ]
 
-render(<App countries={DATA} />, document.getElementById('app'), function(){})
+render(<App data={DATA} />, document.getElementById('app'), function(){})

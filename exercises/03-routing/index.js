@@ -6,7 +6,8 @@ import Gravatar from './Gravatar'
 const USERS = [
   { id:1, name: 'Samar Panda', email: 'samar.panda84@gmail.com'},
   { id:2, name: 'Santhosh Reddy', email: 'santhosh.mreddy@gmail.com'},
-  { id:3, name: 'Chiranjit', email: 'ckhabra@gmail.com'}
+  { id:3, name: 'Chiranjit', email: 'ckhabra@gmail.com'},
+  { id:4, name: 'Manohar', email: 'manohar.negi@gmail.com'}
 ]
 
 function getUserByID(id){
