@@ -11,10 +11,14 @@ var Carousel = React.createClass({
 		};
 	},
 	render(){
-		console.log('Yo');
-		return <div>
+		return (<div>
 			<h1>Transition</h1>
-		</div>
+			{
+				this.state.slides.map((item, i) => {
+				return <Slide id={item} key={i} />
+				})
+			}
+		</div>);
 	}
 });
 
