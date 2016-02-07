@@ -27,7 +27,7 @@ const Resize = React.createClass({
         {interpolatedStyles =>
           <div>
             {interpolatedStyles.map(config => {
-              return <div key={config.key} style={{...config.style, border: '1px solid'}} />
+              return <div key={config.key} style={{...config.style, border: '1px solid'}}>{config.key}</div>
             })}
           </div>
         }
