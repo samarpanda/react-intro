@@ -1,26 +1,39 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {Motion, spring} from 'react-motion'
+import {Motion, spring, TransitionMotion} from 'react-motion'
 
-import Slide from './slide'
-
-var Carousel = React.createClass({
-	getInitialState(){
-		return {
-			slides: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-		};
-	},
-	render(){
-		return (<div>
-			<h1>Transition</h1>
-			{
-				this.state.slides.map((item, i) => {
-				return <Slide id={item} key={i} />
-				})
-			}
-		</div>);
-	}
+const Resize = React.createClass({
+  getInitialState() {
+    return {
+      items: [{key: 'a', size: 50}, {key: 'b', size: 60}, {key: 'c', size: 100}],
+    };
+  },
+  componentDidMount() {
+    this.setState({
+      items: [{key: 'a', size: 50}, {key: 'b', size: 60}], // remove c.
+    });
+  },
+  willLeave() {
+    return {width: spring(0), height: spring(0)};
+  },
+  render() {
+    return (
+      <TransitionMotion
+        willLeave={this.willLeave}
+        styles={this.state.items.map(item => ({
+          key: item.key,
+          style: {width: item.size, height: item.size},
+        }))}>
+        {interpolatedStyles =>
+          <div>
+            {interpolatedStyles.map(config => {
+              return <div key={config.key} style={{...config.style, border: '1px solid'}} />
+            })}
+          </div>
+        }
+      </TransitionMotion>
+    );
+  },
 });
 
-render(<Carousel/>, document.getElementById('app'))
-// export default Carousel;
+render(<Resize/>, document.getElementById('app'))
