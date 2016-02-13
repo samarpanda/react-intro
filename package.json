@@ -22,9 +22,11 @@
     "file-loader": "^0.8.5",
     "flux": "^2.1.1",
     "jquery": "^2.2.0",
+    "jsdom": "^8.0.2",
     "key-mirror": "^1.0.1",
     "md5": "^2.0.0",
     "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1"
   },
